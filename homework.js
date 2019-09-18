@@ -61,8 +61,8 @@ function average(numbers) {
 function minimum(numbers) {
     let myMin = undefined
     for (let number of numbers)
-        if (myMin === undefined || myMin === number) {
-            return number
+        if (numbers.length === 0 || myMin === number) {
+            return myMin
         }
     if (numbers.length === 1) {
         return number
@@ -70,6 +70,7 @@ function minimum(numbers) {
 }
 
 // myMin === numbers[0]
+
 // 6. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
 // implement sorting ourselves, however.
