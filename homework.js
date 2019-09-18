@@ -58,23 +58,18 @@ function average(numbers) {
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
 
-// function minimum(numbers) {
-//     let x = 0
-//     let numbers.reduce(function(min, x) {}
-//         x > min)
-//     return numbers
-// }
-
 function minimum(numbers) {
-    let myMin = numbers.reduce(total, current) => {
-        return (total < current ? total : current)
+    let myMin = undefined
+    for (let number of numbers)
+        if (myMin === undefined || myMin === number) {
+            return number
+        }
+    if (numbers.length === 1) {
+        return number
     }
 }
 
-// if numbers.length === 1 {
-//     return numbers[0]
-// }
-
+// myMin === numbers[0]
 // 6. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
 // implement sorting ourselves, however.
