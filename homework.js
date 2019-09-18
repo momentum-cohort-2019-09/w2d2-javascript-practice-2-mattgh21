@@ -63,13 +63,16 @@ function minimum(numbers) {
     for (let number of numbers)
         if (numbers.length === 0 || myMin === number) {
             return myMin
-        }
-    if (numbers.length === 1) {
+        } else if (numbers.length === 1) {
         return number
+    } else {
+        for (let i = 1; i < numbers.length; i++)
+            myMin === numbers[0]
     }
+    return myMin
 }
 
-// myMin === numbers[0]
+
 
 // 6. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
