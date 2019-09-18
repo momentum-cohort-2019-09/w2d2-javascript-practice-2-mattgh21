@@ -18,6 +18,18 @@ function remove(array, member) {
 }
 
 
+// return array.filter(member => member !== itemToRemove)
+
+// function remove (array, itemToRemove) {
+//     let arrayCopy = array.slice()
+//     let idx = arrayCopy.indexOf(itemToRemove)
+//     while (idx !== -1) {
+//         arrayCopy.splice(idx, 1)
+//         idx = arrayCopy.indexOf(itemToRemove)
+//     }
+//     return arrayCopy
+// }
+
 // 2. Revisit your "remove" function. Make sure that it does not change the original
 // array but instead returns a new array.
 
@@ -58,20 +70,27 @@ function average(numbers) {
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
 
+// function minimum(numbers) {
+//     let myMin = undefined
+//     for (let number of numbers)
+//         if (numbers.length === 0 || myMin === number) {
+//             return myMin
+//         } else if (numbers.length === 1) {
+//         return number
+//     } else {
+//         for (let i = 1; i < numbers.length; i++)
+//             myMin === numbers[0]
+//     }
+//     return myMin
+// }
 function minimum(numbers) {
     let myMin = undefined
     for (let number of numbers)
-        if (numbers.length === 0 || myMin === number) {
-            return myMin
-        } else if (numbers.length === 1) {
-        return number
-    } else {
-        for (let i = 1; i < numbers.length; i++)
-            myMin === numbers[0]
-    }
+        if (myMin === undefined || myMin > number) {
+            myMin = number
+        }
     return myMin
 }
-
 
 
 // 6. There are many techniques to sort arrays in programming. Your programming
@@ -98,6 +117,28 @@ function minimum(numbers) {
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
 
+// function removeOnce (array, itemToRemove) {
+//     let idx = array.indexOf(itemToRemove)
+//     if (idx !== -1) {
+//         let arrayCopy = array.slice()
+//         return arrayCopy.splice(idx, 1)
+//     }
+//     return array
+// }
+
+function selectionSort(array) {
+    let arrayCopy = array.slice()
+    let sortedArray = []
+
+    while (arrayCopy.length > 0) {
+        let minVal = minimum(arrayCopy)
+        sortedArray.push(minVal)
+
+        let minValIdx = arrayCopy.indexOf(minVal)
+        arrayCopy.splice(minValIdx, 1)
+    }
+    return sortedArray
+}
 
 
 // 7. Create a function called `textList` that takes an array and joins its elements
